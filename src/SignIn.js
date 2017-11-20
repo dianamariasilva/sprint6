@@ -3,7 +3,7 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'redux-zero/react'
 import { signIn, signOut, signUp } from './actions'
 import './App.css';
-
+import logo from './download.png';
 
 const SignIn = ({ successSignIn }) => {
   return (
@@ -73,18 +73,36 @@ const SignIn = ({ successSignIn }) => {
               {
                 successSignIn && <Redirect to="/home" />
               }
-              <h1> Sign In</h1>
-              <form onSubmit={
+              <form id="sign_in_form" data-reactid=".0.0.0.1" onSubmit={
                 e => {
                   e.preventDefault();
                   signIn(this.emailInputRef.value, this.passwordInputRef.value)
                 }
               }>
-                <input placeholder="email" ref={e => this.emailInputRef = e} />
-                <input type="password" placeholder="password" ref={e => this.passwordInputRef = e} />
+                <div className="field" data-reactid=".0.0.0.1.1">
+                  <input
+                    type="Email"
+                    placeholder="email"
+                    id="user_email"
+                    data-reactid=".0.0.0.1.1.0"
+                    ref={e => this.emailInputRef = e} />
+                </div>
+                <div className="field" data-reactid=".0.0.0.1.2">
+                  <input
+                    type="password"
+                    placeholder="password"
+                    id="user_password"
+                    data-reactid=".0.0.0.1.2.0"
+                    ref={e => this.passwordInputRef = e} />
+                </div>
                 <button type="submit" >
                   SignIn
-            </button>
+                </button>
+                <div className="field">
+                  <NavLink data-reactid=".0.0.0.2" to="/signup">
+                    Create a new account
+                  </NavLink>
+                </div>
               </form>
             </main>
           </div>
