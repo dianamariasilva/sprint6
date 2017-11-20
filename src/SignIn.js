@@ -4,6 +4,7 @@ import { connect } from 'redux-zero/react'
 import { signIn, signOut, signUp } from './actions'
 import './App.css';
 import logo from './download.png';
+import SignUp from './SignUp';
 
 const SignIn = ({ successSignIn }) => {
   return (

@@ -27,7 +27,7 @@ const SignUp = ({ successSignUp }) => {
                         onSubmit={
                             e => {
                                 e.preventDefault();
-                                signUp(this.firstNameRef.value, this.emailRef.value, this.passwordRef.value, this.lastNameRef.value, this.passwordConfRef.value)
+                                signUp(this.firstNameRef.value, this.lastNameRef.value, this.emailRef.value, this.passwordRef.value)
                             }
                         }>
                             <input placeholder="First Name" 
@@ -50,25 +50,26 @@ const SignUp = ({ successSignUp }) => {
                                 type="email" 
                                 ref={e => this.emailRef = e} />
                             </div>
-                            <input 
-                            type="password" 
-                            placeholder="Password" 
-                            ref={e => this.passwordRef = e} />
                             <div className="field" data-reactid=".0.0.0.1.4">
-                                <input
-                                    id="user_password_confirmation"
-                                    type="password"
-                                    placeholder="Confirm password"
-                                    required
-                                    ref={e => this.passwordConfRef = e}
-                                    data-reactid=".0.0.0.1.4.0" />
+                                <input 
+                                type="password" 
+                                placeholder="Password" 
+                                ref={e => this.passwordRef = e} />
                             </div>
-
+                            {/* <div className="field" data-reactid=".0.0.0.1.4">
+                                <input
+                                id="user_password_confirmation"
+                                type="password"
+                                placeholder="Confirm password"
+                                required
+                                ref={e => this.passwordConfRef = e}
+                                data-reactid=".0.0.0.1.4.0" />
+                            </div> */}
                             <button type="submit">
                                 Sign Up!
                             </button>
                             <div className="field" data-reactid=".0.0.0.1.4">
-                                <NavLink type="submit" data-reactid=".0.0.0.1.3" to="/signin">
+                                <NavLink data-reactid=".0.0.0.1.3" to="/signin">
                                     Sign in
                                 </NavLink>
                             </div>
@@ -83,3 +84,4 @@ const SignUp = ({ successSignUp }) => {
 
 const mapToProps = ({ successSignUp }) => ({ successSignUp })
 export default connect(mapToProps)(SignUp);
+ 
