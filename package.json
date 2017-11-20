@@ -2,6 +2,7 @@
     "name": "kahoot-survey",
     "version": "0.1.0",
     "private": true,
+    "homepage": "http://dianamariasilva.github.io/sprint6",
     "dependencies": {
       "firebase": "^4.6.2",
       "react": "^16.1.1",
