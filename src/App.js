@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {connect} from 'redux-zero/react'
+
+import {NavLink,  Redirect } from 'react-router-dom';
+import {signIn, signOut, signUp} from './actions'
 import './App.css';
 
-class App extends Component {
-  render() {
+
+const App  = ({successLogin, user}) => {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+         {
+            !successLogin  && <Redirect to = "/login" />
+         }
+         <h1> TRELLO </h1>
+         <button onClick = {signOut}>
+            SignOut
+         </button>   
+            <div>
+                 {user.email} - {user.fullname} - {user.survey} -  {user.question} - {user.options} 
+            </div>
       </div>
     );
-  }
-}
-
-export default App;
+} 
+const mapToProps = ({successLogin,user})  => ({successLogin, user}) 
+export default connect(mapToProps)(App) ;
