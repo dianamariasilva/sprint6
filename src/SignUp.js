@@ -4,34 +4,79 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'redux-zero/react'
 import { signIn, signOut, signUp } from './actions'
 import './App.css';
+import logo from './download.png'
 
 const SignUp = ({ successSignUp }) => {
     return (
-        <div>
-            {
-                successSignUp && <Redirect to="/home" />
-            }
-            <form onSubmit={
-                e => {
-                    e.preventDefault();
-                    signUp(this.fullNameRef.value, this.emailRef.value, this.passwordRef.value, this.surveyRef.value, this.questionRef.value, this.optionsRef.value)
-                }
-            }>
-                <input placeholder="FullName" ref={e => this.fullNameRef = e} />
-                <input placeholder="Email" ref={e => this.emailRef = e} />
-                <input type="password" placeholder="Password" ref={e => this.passwordRef = e} />
-                <input placeholder="Survey title" ref={e => this.surveyRef = e} />
-                <input placeholder="Question title" ref={e => this.questionRef = e} />
-                <input placeholder="Options [array]" ref={e => this.optionsRef = e} />
+        <main id="main_container" role="main">
+            <div data-reactid=".0">
+                <div
+                    className="view-container registrations new"
+                    data-reactid=".0.0">
+                    <main data-reactid=".0.0.0">
+                        <header data-reactid=".0.0.0.0">
+                            <img src={logo} />
+                        </header>
 
-                <button type="submit">
-                    Sign Up!
-              </button>
-                <NavLink type="submit" data-reactid=".0.0.0.1.3" to="/signin">
-                    Sign in
-                </NavLink>
-            </form>
-        </div>
+                        {
+                            successSignUp && <Redirect to="/home" />
+                        }
+                        <form 
+                        id="sign_up_form" 
+                        data-reactid=".0.0.0.1"
+                        onSubmit={
+                            e => {
+                                e.preventDefault();
+                                signUp(this.firstNameRef.value, this.emailRef.value, this.passwordRef.value, this.lastNameRef.value, this.passwordConfRef.value)
+                            }
+                        }>
+                            <input placeholder="First Name" 
+                            id="user_first_name"
+                            type="text"
+                            ref={e => this.firstNameRef = e} />
+                            <div className="field" data-reactid=".0.0.0.1.1">
+                                <input
+                                id="user_last_name"
+                                type="text" 
+                                placeholder="Last Name" 
+                                required
+                                data-reactid=".0.0.0.1.1.0"
+                                ref={e => this.lastNameRef = e} />
+                            </div>
+                            <div className="field" data-reactid=".0.0.0.1.1">
+                                <input 
+                                placeholder="Email"
+                                id="user_email"
+                                type="email" 
+                                ref={e => this.emailRef = e} />
+                            </div>
+                            <input 
+                            type="password" 
+                            placeholder="Password" 
+                            ref={e => this.passwordRef = e} />
+                            <div className="field" data-reactid=".0.0.0.1.4">
+                                <input
+                                    id="user_password_confirmation"
+                                    type="password"
+                                    placeholder="Confirm password"
+                                    required
+                                    ref={e => this.passwordConfRef = e}
+                                    data-reactid=".0.0.0.1.4.0" />
+                            </div>
+
+                            <button type="submit">
+                                Sign Up!
+                            </button>
+                            <div className="field" data-reactid=".0.0.0.1.4">
+                                <NavLink type="submit" data-reactid=".0.0.0.1.3" to="/signin">
+                                    Sign in
+                                </NavLink>
+                            </div>
+                        </form>
+                    </main>
+                </div>
+            </div>
+        </main>
     );
 }
 

@@ -1,13 +1,13 @@
 import store from './store'
 import {auth, database} from './firebase';
 
-export function signUp (fullname, email, pass, survey, question, options) 
+export function signUp (firstname, email, pass, lastName, question, options) 
 {
-   console.log ('signUp' + fullname + email + pass);
+   console.log ('signUp' + firstname + email + pass);
 
    auth.createUserWithEmailAndPassword (email, pass).then ( user => {
       let newuser = {
-         fullname, email, survey, question, options
+         firstname, email, lastName, question, options
       }
       database.ref ('users/' + user.uid).set (newuser);       
       database.ref ('users/' + user.uid).once ('value').then ( res => {
@@ -18,8 +18,8 @@ export function signUp (fullname, email, pass, survey, question, options)
             user: {
                id : user.uid,
                email :  fullUserInfo.email,
-               fullname :  fullUserInfo.fullname,
-               survey :  fullUserInfo.survey,
+               firstname :  fullUserInfo.firstname,
+               lastName :  fullUserInfo.lastName,
                question :  fullUserInfo.question,
                options :  fullUserInfo.options               
             }
@@ -52,10 +52,9 @@ export function signIn (user, pass) {
             user: {
                id : userObj.uid,
                email :  fullUserInfo.email,
-               fullname :  fullUserInfo.fullname,
-               survey :  fullUserInfo.survey,
-               question :  fullUserInfo.question,
-               options :  fullUserInfo.options               
+               firstname :  fullUserInfo.firstname,
+               lastName :  fullUserInfo.lastName,
+               passwordConf :  fullUserInfo.passwordConf             
             }
          })
       })

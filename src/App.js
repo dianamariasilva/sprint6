@@ -17,7 +17,7 @@ const App  = ({successSignIn, user}) => {
             SignOut
          </button>   
             <div>
-                 {user.email} - {user.fullname} - {user.survey} -  {user.question} - {user.options} 
+                 {user.email} - {user.firstname} - {user.lastname} -  {user.passWordConf}
             </div>
       </div>
     );
