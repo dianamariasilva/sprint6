@@ -5,7 +5,7 @@ import { connect } from 'redux-zero/react'
 import { signIn, signOut, signUp } from './actions'
 import './App.css';
 
-const Register = ({ successSignUp }) => {
+const SignUp = ({ successSignUp }) => {
     return (
         <div>
             {
@@ -37,4 +37,4 @@ const Register = ({ successSignUp }) => {
 
 
 const mapToProps = ({ successSignUp }) => ({ successSignUp })
-export default connect(mapToProps)(Register);
+export default connect(mapToProps)(SignUp);

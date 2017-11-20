@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import SignIn from './SignIn';
-import Register from './Register';
+import SignUp from './SignUp';
 // import TrelloApp from './TrelloApp';
 import {Provider} from 'redux-zero/react'
 import {HashRouter, Route, Switch} from 'react-router-dom'
@@ -16,7 +16,7 @@ const Index = () =>  (
          <Switch>
             <Route name="signin" exact path = "/" component = {SignIn}/>
             <Route name="signin" exact path = "/signin" component = {SignIn}/>
-            <Route name="register"  exact path = "/register" component = {Register}/>         
+            <Route name="signup"  exact path = "/signup" component = {SignUp}/>         
             <Route name="home"  exact path = "/home" component = {App}/>
             {/* <Route name="trello"  exact path = "/trello" component = {TrelloApp}/> */}
          </Switch>
