@@ -10,14 +10,6 @@ import {HashRouter, Route, Switch} from 'react-router-dom'
 import store from './store'
 import registerServiceWorker from './registerServiceWorker';
 
-const User_id = () => {
-    return (
-        <div>
-
-        </div>
-    )
-}
-
 const Index = () =>  (
    <Provider store={store}> 
       <HashRouter>
