@@ -6,11 +6,11 @@ import {signIn, signOut, signUp} from './actions'
 import './App.css';
 
 
-const App  = ({successLogin, user}) => {
+const App  = ({successSignIn, user}) => {
     return (
       <div className="App">
          {
-            !successLogin  && <Redirect to = "/login" />
+            !successSignIn  && <Redirect to = "/SignIn" />
          }
          <h1> TRELLO </h1>
          <button onClick = {signOut}>
@@ -22,5 +22,5 @@ const App  = ({successLogin, user}) => {
       </div>
     );
 } 
-const mapToProps = ({successLogin,user})  => ({successLogin, user}) 
+const mapToProps = ({successSignIn,user})  => ({successSignIn, user}) 
 export default connect(mapToProps)(App) ;

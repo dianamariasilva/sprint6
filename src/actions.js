@@ -33,7 +33,7 @@ export function signUp (fullname, email, pass, survey, question, options)
 export function signOut () {
    auth.signOut();
    store.setState ( {
-      successLogin : false,
+      successSignIn : false,
       user: {
          id :'',
          email :  ''
@@ -69,7 +69,7 @@ auth.onAuthStateChanged(user => {
       let usersRef = database.ref('/users');
       let userRef = usersRef.child(user.uid);
       store.setState ( {
-         successLogin : true
+         successSignIn : true
       })
    }
 });

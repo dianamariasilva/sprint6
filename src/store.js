@@ -2,7 +2,7 @@
 import createStore from 'redux-zero'
 
 const initialState = {
-   successLogin : false,
+   successSignIn : false,
    user : {
       id : null,
       email :  null,
