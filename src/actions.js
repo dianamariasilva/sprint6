@@ -126,44 +126,57 @@ export function readBoard () {
     })  */
  }
 
- const snapshotToArray = snapshot => {
-    let comments = []
-    snapshot.forEach(childSnapshot => {
-       let item = childSnapshot.val();
-       let key = childSnapshot.key;
-       item.id = key;
-       comments.push( item );
-     });
+//  const snapshotToArray = snapshot => {
+//    let comments = []
+//    snapshot.forEach(childSnapshot => {
+//       let item = childSnapshot.val();
+//       let key = childSnapshot.key;
+//       item.id = key;
+//       comments.push( item );
+//     });
+//    store.setState({
+//       comments: comments
+//    })
+
+// };
+
+// export const readAllComments = () => {
+//    firebase.database()
+//          .ref('comentarios/')
+//          .on('value', (res) => {
+//             snapshotToArray(res)
+//          });
+// }
+
+// export  async function addComments (name,comment) {
+//     const comments = [...store.getState().comments]
+//    const newcomment = {
+//       name: name,
+//       comment: comment
+//    };
+
+//    const res = await  firebase.database().ref('comentarios/').push (newcomment);
+//    newcomment.id = res.key;
+
+//    const newComment= comments.concat(newcomment);
+// 	store.setState({
+// 		comments: newComment
+// 	})
+// }
+
+// export const deleteComments = (id) => {
+//    firebase.database().ref('comentarios/').child(id).remove();
+// }
+
+export const addComment = (name) => {
+    let oldList = store.getState().board;
+    const newList = oldList.concat({
+        id: oldList.length,
+        name: name,
+    });
     store.setState({
-       comments: comments
-    })
- 
- };
- 
- export const readAllComments = () => {
-    firebase.database()
-          .ref('comentarios/')
-          .on('value', (res) => {
-             snapshotToArray(res)
-          });
- }
- 
- export  async function addComments (name,comment) {
-     const comments = [...store.getState().comments]
-    const newcomment = {
-       name: name,
-       comment: comment
-    };
- 
-    const res = await  firebase.database().ref('comentarios/').push (newcomment);
-    newcomment.id = res.key;
- 
-    const newComment= comments.concat(newcomment);
-     store.setState({
-         comments: newComment
-     })
- }
- 
- export const deleteComments = (id) => {
-    firebase.database().ref('comentarios/').child(id).remove();
- }
+        board: newList
+    });
+
+    console.log(newList);
+};      

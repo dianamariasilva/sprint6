@@ -4,7 +4,8 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'redux-zero/react'
 import { signIn, signOut, signUp } from './actions'
 import './App.css';
-import logo from './download.png'
+import logo from './download.png';
+import Board from './components/Board/Board';
 
 const SignUp = ({ successSignUp }) => {
     return (
@@ -19,7 +20,7 @@ const SignUp = ({ successSignUp }) => {
                         </header>
 
                         {
-                            successSignUp && <Redirect to="/home" />
+                            successSignUp && <Redirect to="/board" />
                         }
                         <form 
                         id="sign_up_form" 
@@ -66,7 +67,8 @@ const SignUp = ({ successSignUp }) => {
                                 data-reactid=".0.0.0.1.4.0" />
                             </div> */}
                             <button type="submit">
-                                Sign Up!
+                                SignUp
+                               {/* <Redirect to="/board"> Sign Up! </Redirect> */}
                             </button>
                             <div className="field" data-reactid=".0.0.0.1.4">
                                 <NavLink data-reactid=".0.0.0.1.3" to="/signin">

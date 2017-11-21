@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import TrelloApp from './TrelloApp';
+// import TrelloApp from './TrelloApp';
 import {Provider} from 'redux-zero/react'
 import {HashRouter, Route, Switch} from 'react-router-dom'
 import store from './store'
 import registerServiceWorker from './registerServiceWorker';
+import Board from './components/Board/Board';
 
 const Index = () =>  (
    <Provider store={store}> 
@@ -16,8 +17,9 @@ const Index = () =>  (
          <Switch>
             <Route name="signin" exact path = "/" component = {SignIn}/>
             <Route name="signin" exact path = "/signin" component = {SignIn}/>
-            <Route name="signup" exact path = "/signup" component = {SignUp}/>         
-            <Route name="board" exact path = "/board/:id" component = {App}/> 
+            <Route name="signup" exact path = "/signup" component = {SignUp}/>    
+            <Route name="board" exact path = "/board" component = {Board}/>      
+            <Route name="board" exact path = "/home" component = {App}/>    
          </Switch>
       </HashRouter>
    </Provider>

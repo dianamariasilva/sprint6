@@ -5,6 +5,7 @@ import { signIn, signOut, signUp } from './actions'
 import './App.css';
 import logo from './download.png';
 import SignUp from './SignUp';
+import Board from './components/Board/Board';
 
 const SignIn = ({ successSignIn }) => {
   return (
@@ -46,12 +47,12 @@ const SignIn = ({ successSignIn }) => {
                 <button type="submit" >
                   SignIn
                 </button>
-                <div className="field">
+              </form>
+              <div className="field">
                   <NavLink data-reactid=".0.0.0.2" to="/signup">
                     Create a new account
                   </NavLink>
                 </div>
-              </form>
             </main>
           </div>
         </div>

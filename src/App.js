@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'redux-zero/react'
 
 import {NavLink,  Redirect } from 'react-router-dom';
-import {signIn, signOut, signUp, readAllComments, addComments, deleteComments} from './actions';
+import {signIn, signOut, signUp} from './actions'
 import './App.css';
 
 
