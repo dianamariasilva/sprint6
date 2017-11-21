@@ -20,7 +20,7 @@ const SignIn = ({ successSignIn }) => {
                 <img className="logo" data-reactid=".0.0.0.0.0" src={logo} />
               </header>
               {
-                successSignIn && <Redirect to="/home" />
+                successSignIn && <Redirect to="/board" />
               }
               <form id="sign_in_form" data-reactid=".0.0.0.1" onSubmit={
                 e => {

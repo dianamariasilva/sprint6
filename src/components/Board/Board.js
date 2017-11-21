@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { addComment } from '../../actions';
+import { addComment, signOut } from '../../actions';
 import { connect } from 'redux-zero/react';
+import store from '../../store'
 
 const Board = ({ board2, board }) => {
-    const BoardComponent = board.map((item, index) => {
-        return <Name
-            key={index}
-            name={item.name}
-        />
-    })
+    // const Names = board.map((item, index) => {
+    //     return <ListUser
+    //         key={index}
+    //         name={item.name}
+    //     />
+    // })
 
     return (
         <main id='main_container'>
@@ -29,12 +30,11 @@ const Board = ({ board2, board }) => {
                     <li>
                         <a className="current-user">
                             <img alt="Gravatar for john@phoenix-trello.com" src="//www.gravatar.com/avatar/6a88cfcf7b76267b129b8dc477c4105e?d=retro&amp;r=g&amp;s=50" srcset="//www.gravatar.com/avatar/6a88cfcf7b76267b129b8dc477c4105e?d=retro&amp;r=g&amp;s=100 2x" height="50" width="50" className="react-gravatar react-gravatar" />
-                            <span></span>
                             <span>John Doe</span>
                         </a>
                     </li>
                     <li>
-                        <button onClick = {signOut}><i className="fa fa-sign-out"></i><span> Sign out</span></button>
+                        <button onClick = {signOut}> Sign out</button>
                     </li>
                 </ul>
             </nav>
@@ -46,7 +46,7 @@ const Board = ({ board2, board }) => {
                                     <h3><i class="fa fa-user"></i><span> My boards</span></h3>
                                 </header>
                                 <div className="boards-wrapper">
-                                    {BoardComponent}
+                                    Names
                                     <div className="board add-new">
                                         <div class="inner">
                                             <a id="add_new_board">Add new board...</a>
@@ -60,24 +60,24 @@ const Board = ({ board2, board }) => {
                                 </div>
                             </section>
                             <section>
-            <div class="view-header">
-                <h3><i class="fa fa-users"></i><span> Other boards</span>
-                </h3>
-            </div>
-            <div className='boards-wrapper'>
-                {
-                    board2.map((list, index) => {
-                        return (
-                            <div className='board'>
-                                <div className='inner'>
-                                    <h4>{list.name}</h4>
+                                <header class="view-header">
+                                    <h3><i class="fa fa-users"></i><span> Other boards</span>
+                                    </h3>
+                                </header>
+                                <div className='boards-wrapper'>
+                                    board2{/* {
+                                        board2.map((list, index) => {
+                                            return (
+                                                <div className='board'>
+                                                    <div className='inner'>
+                                                        <h4>{list.name}</h4>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })
+                                    } */}
                                 </div>
-                            </div>
-                        );
-                    })
-                }
-            </div>
-        </section>
+                            </section>
                         </div>
                         </div>
                 </div>
@@ -86,17 +86,16 @@ const Board = ({ board2, board }) => {
     );
 };
 
-
-const Name = ({ name }) => {
+const ListUser = () => {
     return (
         <div className="board">
             <div className="inner">
-                <h4>{name}</h4>
+                <h4>hola</h4>
             </div>
         </div>
     );
 }
 
-//export default Boards;
+
 const mapToProps = ({ board2, board }) => ({ board2, board });
 export default connect(mapToProps)(Board);

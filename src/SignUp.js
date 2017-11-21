@@ -7,7 +7,7 @@ import './App.css';
 import logo from './download.png';
 import Board from './components/Board/Board';
 
-const SignUp = ({ successSignUp }) => {
+const SignUp = ({ successSignIn }) => {
     return (
         <main id="main_container" role="main">
             <div data-reactid=".0">
@@ -20,7 +20,7 @@ const SignUp = ({ successSignUp }) => {
                         </header>
 
                         {
-                            successSignUp && <Redirect to="/board" />
+                            successSignIn && <Redirect to="/board" />
                         }
                         <form 
                         id="sign_up_form" 
@@ -67,8 +67,7 @@ const SignUp = ({ successSignUp }) => {
                                 data-reactid=".0.0.0.1.4.0" />
                             </div> */}
                             <button type="submit">
-                                SignUp
-                               {/* <Redirect to="/board"> Sign Up! </Redirect> */}
+                               <Redirect to="/board"> Sign Up! </Redirect>
                             </button>
                             <div className="field" data-reactid=".0.0.0.1.4">
                                 <NavLink data-reactid=".0.0.0.1.3" to="/signin">
@@ -84,6 +83,6 @@ const SignUp = ({ successSignUp }) => {
 }
 
 
-const mapToProps = ({ successSignUp }) => ({ successSignUp })
+const mapToProps = ({ successSignIn }) => ({ successSignIn })
 export default connect(mapToProps)(SignUp);
  
